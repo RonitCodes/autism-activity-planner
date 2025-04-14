@@ -1,13 +1,85 @@
+/* ./index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styles */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  @apply bg-brand-beige text-brand-text font-sans leading-relaxed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Navigation Bar */
+nav {
+  @apply bg-brand-beige shadow-md sticky top-0 z-50;
+}
+nav a {
+  @apply px-4 py-2 rounded-md text-lg font-medium transition-colors duration-200;
+}
+nav a:hover {
+  @apply bg-brand-sage/20;
+}
+nav a.active {
+  @apply bg-brand-sage text-white shadow-sm;
+}
+
+/* Header & Footer */
+.App-header, footer {
+  @apply py-4;
+}
+footer {
+  @apply bg-brand-sage text-white mt-12 py-6;
+}
+
+/* Main Content Layout */
+main {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full;
+}
+
+/* Calendar Styles */
+.rbc-toolbar button {
+  @apply text-brand-sage hover:bg-brand-sage/10 focus:ring focus:ring-brand-sage;
+}
+.rbc-event {
+  @apply p-2 text-sm;
+}
+.rbc-month-view, .rbc-time-view {
+  @apply border border-gray-300 rounded-md;
+}
+.rbc-header {
+  @apply border-b-2 border-gray-300 text-brand-sage font-medium p-2 text-center;
+}
+.rbc-today {
+  @apply bg-brand-beige;
+}
+.rbc-off-range-bg {
+  @apply bg-gray-100;
+}
+
+/* Activity Card Styles */
+.card {
+  @apply bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-200;
+}
+.card-content {
+  @apply p-6;
+}
+.card-title {
+  @apply text-xl font-semibold text-brand-sage mb-2;
+}
+.card-subtext {
+  @apply text-sm text-gray-500 mb-1;
+}
+.card-description {
+  @apply text-base text-brand-text mb-4;
+}
+
+/* Responsive Typography */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold;
+}
+p {
+  @apply text-base;
 }
