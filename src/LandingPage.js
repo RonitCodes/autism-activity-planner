@@ -200,7 +200,7 @@ const LandingPage = () => {
           title: 'Cool Math Games',
           description: 'Play educational games that promote math and logic skills.',
           url: 'https://www.coolmathgames.com/',
-          img: process.env.PUBLIC_URL + '/images/cool-math-games.png',
+          img: process.env.PUBLIC_URL + '/images/cool-math-games.jpg',
         },
       ].map((item, idx) => (
         <Grid item xs={12} sm={6} md={3} key={idx}>
