@@ -89,7 +89,7 @@ const LandingPage = () => {
 
       {/* HOME */}
       <TabPanel value={tab} index={0}>
-        <Box textAlign="center" p={5} style={{ background: '#ffffff', marginBottom: '2rem' }}>
+        <Box textAlign="center" p={5} style={{ background: '#fefae0', borderRadius: '12px', margin: '2rem 3rem' }}>
           <Typography variant="h3" gutterBottom>Welcome to St. Joseph's Villa</Typography>
           <Typography variant="h6" color="textSecondary" gutterBottom>
             All children and families deserve the opportunity to thrive. We provide integrated, comprehensive support services to create a brighter future for everyone.
@@ -136,7 +136,7 @@ const LandingPage = () => {
           </Grid>
         </Box>
 
-        <Box p={5} mt={4} style={{ background: '#f1f1e8' }}>
+      <Box p={5} mt={4} style={{ background: '#fefae0', borderRadius: '12px', margin: '2rem 3rem' }}>
           <Typography variant="h4" gutterBottom>What Families Say</Typography>
           <Grid container spacing={3}>
             {[
