@@ -12,7 +12,9 @@ import {
   Card,
   CardMedia,
   CardContent,
+  CardActions, // 👈 Add this!
 } from '@mui/material';
+
 
 const TabPanel = ({ children, value, index }) => (
   <div role="tabpanel" hidden={value !== index}>
@@ -167,39 +169,113 @@ const LandingPage = () => {
         </Box>
       </TabPanel>
 
-      {/* STUDENTS */}
       <TabPanel value={tab} index={1}>
-        <Typography variant="h5" gutterBottom>Student Resources</Typography>
-        <Grid container spacing={2}>
-          {studentResources.map((item, idx) => (
-            <Grid item xs={12} sm={6} md={3} key={idx}>
-              <Card onClick={() => window.open(item.url, '_blank')} sx={{ cursor: 'pointer', height: '100%' }}>
-                <CardMedia component="img" height="140" image={item.img} alt={item.title} />
-                <CardContent>
-                  <Typography variant="subtitle1">{item.title}</Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </TabPanel>
+  <Box p={4} style={{ backgroundColor: '#f9f9f9' }}>
+    <Typography variant="h4" gutterBottom>Student Resources</Typography>
+    <Typography variant="body1" mb={4}>
+      Fun, educational, and sensory-rich tools for autistic students to explore and enjoy.
+    </Typography>
 
-      {/* TEACHERS */}
-      <TabPanel value={tab} index={2}>
-        <Typography variant="h5" gutterBottom>Teacher Resources</Typography>
-        <Grid container spacing={2}>
-          {teacherResources.map((item, idx) => (
-            <Grid item xs={12} sm={6} md={3} key={idx}>
-              <Card onClick={() => window.open(item.url, '_blank')} sx={{ cursor: 'pointer', height: '100%' }}>
-                <CardMedia component="img" height="140" image={item.img} alt={item.title} />
-                <CardContent>
-                  <Typography variant="subtitle1">{item.title}</Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
+    <Grid container spacing={3}>
+      {[
+        {
+          title: 'Virtual Interactive Modules',
+          description: 'Explore learning activities through fun virtual environments.',
+          url: 'https://www.autismspeaks.org/virtual-activities-kids-autism#Learning',
+          img: process.env.PUBLIC_URL + '/images/virtual-learning.jpg',
+        },
+        {
+          title: 'Sensory Activities',
+          description: 'Engage the senses with calming, stimulating activities.',
+          url: 'https://www.autismspeaks.org/blog/10-sensory-activities-for-autism',
+          img: process.env.PUBLIC_URL + '/images/sensory-play.jpg',
+        },
+        {
+          title: 'Pablo (Cartoon)',
+          description: 'Watch stories told through the eyes of an autistic child.',
+          url: 'https://www.youtube.com/results?search_query=pablo+cartoon+autism',
+          img: process.env.PUBLIC_URL + '/images/pablo-cartoon.jpg',
+        },
+        {
+          title: 'Cool Math Games',
+          description: 'Play educational games that promote math and logic skills.',
+          url: 'https://www.coolmathgames.com/',
+          img: process.env.PUBLIC_URL + '/images/cool-math-games.png',
+        },
+      ].map((item, idx) => (
+        <Grid item xs={12} sm={6} md={3} key={idx}>
+          <Card style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+            <CardMedia component="img" height="140" image={item.img} alt={item.title} />
+            <CardContent>
+              <Typography variant="h6">{item.title}</Typography>
+              <Typography variant="body2" color="textSecondary">{item.description}</Typography>
+            </CardContent>
+            <CardActions style={{ marginTop: 'auto' }}>
+              <Button size="small" variant="contained" color="primary" href={item.url} target="_blank">
+                Visit
+              </Button>
+            </CardActions>
+          </Card>
         </Grid>
-      </TabPanel>
+      ))}
+    </Grid>
+  </Box>
+</TabPanel>
+
+
+<TabPanel value={tab} index={2}>
+  <Box p={4} style={{ backgroundColor: '#f9f9f9' }}>
+    <Typography variant="h4" gutterBottom>Teacher Resources</Typography>
+    <Typography variant="body1" mb={4}>
+      Tools to support lesson planning, physical activity, and behavioral guidance.
+    </Typography>
+
+    <Grid container spacing={3}>
+      {[
+        {
+          title: 'Downloadable Worksheets',
+          description: 'Printable learning aids to support academic progress.',
+          url: 'https://www.teacherspayteachers.com/Browse/Search:autism%20worksheets',
+          img: process.env.PUBLIC_URL + '/images/worksheets.jpg',
+        },
+        {
+          title: 'Fitness Plans & Videos',
+          description: 'Exercise routines and wellness ideas for the classroom.',
+          url: 'https://www.youtube.com/results?search_query=fitness+autism+kids',
+          img: process.env.PUBLIC_URL + '/images/fitness.jpg',
+        },
+        {
+          title: 'Behavioral Strategies',
+          description: 'Supportive practices for managing and guiding behaviors.',
+          url: 'https://www.autismspeaks.org/tool-kits',
+          img: process.env.PUBLIC_URL + '/images/behavioral.jpg',
+        },
+        {
+          title: 'Support Resources',
+          description: 'Explore national and local support organizations.',
+          url: 'https://www.autismspeaks.org/family-services',
+          img: process.env.PUBLIC_URL + '/images/support.jpg',
+        },
+      ].map((item, idx) => (
+        <Grid item xs={12} sm={6} md={3} key={idx}>
+          <Card style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+            <CardMedia component="img" height="140" image={item.img} alt={item.title} />
+            <CardContent>
+              <Typography variant="h6">{item.title}</Typography>
+              <Typography variant="body2" color="textSecondary">{item.description}</Typography>
+            </CardContent>
+            <CardActions style={{ marginTop: 'auto' }}>
+              <Button size="small" variant="contained" color="primary" href={item.url} target="_blank">
+                Visit
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
+      ))}
+    </Grid>
+  </Box>
+</TabPanel>
+
 
       {/* RESOURCE LIBRARY */}
       <TabPanel value={tab} index={3}>
